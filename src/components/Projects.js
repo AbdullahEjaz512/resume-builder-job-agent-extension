@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaBrain, FaEye, FaChartLine } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
+// Updated: January 14, 2026
 
 const ProjectsSection = styled.section`
   background: ${({ theme }) => theme.colors.backgroundSecondary};
