@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "All-in-One Job Agent",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:11434/*",
+    "http://127.0.0.1:11434/*",
+    "https://www.linkedin.com/*"
+  ],
+  "background": {
+    "service_worker": "src/scripts/background.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/jobs/search/*", "https://www.linkedin.com/jobs/collections/*"],
+      "js": ["src/scripts/linkedinSearch.ts"]
+    },
+    {
+      "matches": ["https://www.linkedin.com/jobs/view/*", "https://www.linkedin.com/jobs/collections/recommended/*"],
+      "js": ["src/scripts/linkedinApply.ts"]
+    }
+  ]
+}
